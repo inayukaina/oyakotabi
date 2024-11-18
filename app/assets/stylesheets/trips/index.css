@@ -1,0 +1,19 @@
+/* メイン */
+
+.greeting{
+  margin-bottom: 20px;
+}
+.greeting__link{
+  text-decoration: underline;
+}
+.page-heading {
+  font-size: 30px;
+  margin-bottom: 28px;
+}
+.trips__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(100vh - 161px);
+}
