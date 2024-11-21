@@ -1,0 +1,2 @@
+class TripPrefecture < ApplicationRecord
+end
