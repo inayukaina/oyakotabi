@@ -1,21 +1,41 @@
 <%= render "shared/header"%>
 
 
-<main class="main">
-  <div class="inner">
-    <h1>Trips#index</h1>
-    <%= link_to "新しい旅行を作成する", new_trip_path, class: "post" %>
-    <%# // headerに移したため削除ok.cssも消すこと！ %>
-      <%# <div class="greeting"> %>
-        <%# ようこそ、 %>
-        <%# <%= link_to "ユーザー名おやこ", root_path, class: :greeting__link%>
-      <%# </div> %>
-    <%# // headerに移したため削除ok %>
-    <div class="trips__wrapper">
-      <%# trip作成機能実装後、部分テンプレートでtrips一覧を表示する %>
+<div class="container-fluid">
+  <div class="row">
+    <!-- サイドバー -->
+    <div class="col-md-2 sidebar">
+      <h4>メニュー</h4>
+      <ul class="menu-list">
+        <li><%= link_to "新しい旅行を作成する", new_trip_path, class: "btn btn-link" %></li>
+        <li><%# link_to "子供の荷物の初期設定する", edit_child_packing_items_path, class: "btn btn-link" %></li>
+      </ul>
+    </div>
+
+    <!-- 中央: 白地図 -->
+    <div class="col-md-8 main-content">
+      <h4>訪問した県を地図に表示</h4>
+      <div id="japan-map" class="map-container">
+        <!-- 白地図を表示 -->
+        <%# image_tag "japan_map_blank.png", alt: "日本地図", class: "map" %>
+      </div>
+    </div>
+
+    <!-- 右側: 旅行一覧 -->
+    <div class="col-md-2 travel-list">
+      <h4>行った旅行一覧</h4>
+      <ul class="travel-items">
+        <%# @trips.each do |trip| %>
+          <li class="travel-item">
+            <p><strong>期間:</strong> <%# trip.start_date %> 〜 <%# trip.end_date %></p>
+            <p><strong>訪問県:</strong> <%# trip.prefectures.map(&:name).join(", ") %></p>
+          </li>
+        <%# end %>
+      </ul>
     </div>
   </div>
-</main>
+</div>
+
 
 
 <%= render "shared/footer" %>

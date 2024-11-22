@@ -1,19 +1,106 @@
-/* メイン */
+/* 全体レイアウト */
+.container-fluid {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: row;
+}
 
-.greeting{
+/* サイドバー */
+.sidebar {
+  background-color: #2a3d96;
+  padding: 20px;
+  height: 100%;
+  flex: 1;
+}
+
+.sidebar h4 {
+  font-size: 18px;
+  color: #ffffff;
   margin-bottom: 20px;
 }
-.greeting__link{
+
+.menu-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-list li {
+  margin-bottom: 10px;
+}
+
+.menu-list .btn-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu-list .btn-link:hover {
   text-decoration: underline;
 }
-.page-heading {
-  font-size: 30px;
-  margin-bottom: 28px;
+
+/* 中央: 地図表示 */
+.main-content {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  flex: 4;
 }
-.trips__wrapper {
+
+.main-content h4 {
+  font-size: 20px;
+  color: #2a3d96;
+  margin-bottom: 20px;
+}
+
+.map-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 161px);
+  height: 80%;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.map {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 右側: 旅行一覧 */
+.travel-list {
+  background-color: #f5f5f5;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.travel-list h4 {
+  font-size: 18px;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
+.travel-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.travel-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+}
+
+.travel-item p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.travel-item p strong {
+  font-weight: bold;
 }
