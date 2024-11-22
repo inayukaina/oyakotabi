@@ -43,10 +43,9 @@
 
 
 ## prefectures テーブル
-| Column             | Type       | Options                   |
-| ------------------ | ---------- | ------------------------- |
-| name               | string     | null: false, unique: true |
-| region             | string     |                           |あとから地域ごと実装
+| Column             | Type       | Options                             |
+| ------------------ | ---------- | ----------------------------------- |
+| name               | string     | null: false,index: { unique: true } |
 
 ### Association
 - has_many :trip_prefectures
