@@ -1,0 +1,308 @@
+
+/* 背景と全体のスタイル */
+.contents {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffcd1c;
+  display: flex;
+  justify-content: center;
+  align-items: /* 背景と全体のスタイル */
+  .contents {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffcd1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* フォームの中央寄せとスタイル */
+  form {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  /* フレックスレイアウト */
+  .form-group-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .form-group-row > div {
+    flex: 1;
+  }
+  
+  /* ヘッディングスタイル */
+  h4 {
+    font-size: 20px;
+    color: #2a3d96;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* ラベルのスタイル */
+  label {
+    font-size: 14px;
+    color: #555555;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+  }
+  
+  /* 入力フィールドのスタイル */
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #555555;
+  }
+  
+  /* フォーカス時のエフェクト */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: #2a3d96;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+  }
+  
+  /* プレースホルダーのスタイル */
+  input::placeholder,
+  textarea::placeholder {
+    color: #aaaaaa;
+    font-style: italic;
+  }
+  
+  /* ボタンスタイル */
+  button,
+  input[type="submit"] {
+    background-color: #2a3d96;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* ボタンホバー時 */
+  button:hover,
+  input[type="submit"]:hover {
+    background-color: #2567ae;
+  }
+  
+  /* キャンセルボタン */
+  a.btn-secondary {
+    background-color: #cccccc;
+    color: #333333;
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  a.btn-secondary:hover {
+    background-color: #aaaaaa;
+  }
+  
+  /* テキストエリアのスタイル */
+  textarea {
+    resize: none;
+    height: 80px;
+  }
+  
+  /* エラーメッセージ */
+  .alert {
+    background-color: #ffcccc;
+    color: #b00020;
+    border: 1px solid #b00020;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  /* レスポンシブ対応 */
+  @media (max-width: 600px) {
+    form {
+      padding: 20px;
+      width: 90%;
+    }
+  
+    .form-group-row {
+      flex-direction: column;
+    }
+  
+    h4 {
+      font-size: 18px;
+    }
+  
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    textarea,
+    select {
+      font-size: 12px;
+    }
+  
+    button,
+    input[type="submit"],
+    a.btn-secondary {
+      font-size: 14px;
+    }
+  }
+  center;
+}
+
+/* フォームの中央寄せとスタイル */
+form {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  padding: 30px;
+  text-align: center;
+}
+
+/* ヘッディングスタイル */
+h4 {
+  font-size: 20px;
+  color: #2a3d96;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* ラベルのスタイル */
+label {
+  font-size: 14px;
+  color: #555555;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
+}
+
+/* 入力フィールドのスタイル */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #555555;
+}
+
+/* フォーカス時のエフェクト */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #2a3d96;
+  box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+}
+
+/* プレースホルダーのスタイル */
+input::placeholder,
+textarea::placeholder {
+  color: #aaaaaa;
+  font-style: italic;
+}
+
+/* ボタンスタイル */
+button,
+input[type="submit"] {
+  background-color: #2a3d96;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* ボタンホバー時 */
+button:hover,
+input[type="submit"]:hover {
+  background-color: #2567ae;
+}
+
+/* キャンセルボタン */
+a.btn-secondary {
+  background-color: #cccccc;
+  color: #333333;
+  border-radius: 8px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+a.btn-secondary:hover {
+  background-color: #aaaaaa;
+}
+
+/* テキストエリアのスタイル */
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* エラーメッセージ */
+.alert {
+  background-color: #ffcccc;
+  color: #b00020;
+  border: 1px solid #b00020;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+  form {
+    padding: 20px;
+    width: 90%;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 12px;
+  }
+
+  button,
+  input[type="submit"],
+  a.btn-secondary {
+    font-size: 14px;
+  }
+}
