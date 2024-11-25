@@ -104,3 +104,17 @@
 .travel-item p strong {
   font-weight: bold;
 }
+
+/* リンクのスタイル */
+.travel-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.travel-link:hover {
+  background-color: #f0f8ff;
+  border-radius: 8px;
+}

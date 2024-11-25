@@ -27,8 +27,10 @@
       <ul class="travel-items">
         <% @trips.each do |trip| %>
           <li class="travel-item">
-            <p><strong>期間:</strong> <%= trip.start_date %> 〜 <%= trip.end_date %></p>
-            <p><strong>訪問県:</strong> <%= trip.prefectures.map(&:name).join(", ") %></p>
+            <%= link_to trip_path(trip), class: "travel-link" do %>
+              <p><strong>期間:</strong> <%= trip.start_date %> 〜 <%= trip.end_date %></p>
+              <p><strong>訪問県:</strong> <%= trip.prefectures.map(&:name).join(", ") %></p>
+            <% end %>
           </li>
         <% end %>
       </ul>
