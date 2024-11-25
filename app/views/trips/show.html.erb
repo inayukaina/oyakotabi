@@ -1,0 +1,60 @@
+<%= render "shared/header"%>
+
+<div class="container">
+  <!-- 画面上部 -->
+  <div class="upper-section">
+    <!-- 左側: 旅行情報 -->
+    <div class="trip-info">
+      <h2>旅行情報</h2>
+      <p><strong>訪問県:</strong> <%= @trip.prefectures.map(&:name).join(", ") %></p>
+      <p><strong>旅行日程:</strong> <%= @trip.start_date %> 〜 <%= @trip.end_date %></p>
+      <p><strong>予算:</strong> ¥<%= number_to_currency(@trip.budget_total, unit: "", precision: 0) %></p>
+      <p><strong>メモ:</strong> <%= @trip.notes.presence || "なし" %></p>
+    </div>
+
+    <!-- 右側: 写真 -->
+    <div class="trip-photos">
+      <h2>旅行写真</h2>
+      <!-- 後から実装する部分 -->
+      <div class="photo-placeholder">
+        <p>ここに旅行写真が表示されます。</p>
+      </div>
+    </div>
+
+        <%# <%= link_to "商品の編集", edit_trip_path(@trip.id), method: :get, class: "trip-edit-btn" %>
+        <%# <%= link_to "削除", trip_path(@trip.id), data: {turbo_method: :delete}, class:"trip-destroy" %>
+
+  </div>
+
+  <!-- 画面下部 -->
+  <div class="lower-section">
+    <h3>旅行の準備をしよう！</h3>
+    <div class="icon-links">
+      <!-- 子供の旅行荷物準備リンク -->
+      <div class="icon-link">
+        <%= link_to "#" do %>
+          <%= image_tag"packing_icon.png", class:"icon" %>
+          <p>荷物を準備しよう！</p>
+        <% end %>
+      </div>
+
+      <!-- おやつの買い出しリンク -->
+      <div class="icon-link">
+        <%= link_to "#" do %>
+          <%= image_tag"snack_icon.png", class:"icon" %>
+          <p>おやつを買いに行こう！</p>
+        <% end %>
+      </div>
+
+      <!-- 予算管理リンク -->
+      <div class="icon-link">
+        <%= link_to "#" do %>
+          <%= image_tag"budget_icon.png", class:"icon" %>
+          <p>予算を確認しよう！</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
