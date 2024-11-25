@@ -1,4 +1,4 @@
-<%= form_with model: @trip, url: trips_path, method: :post, local: true do |f| %>
+<%= form_with model: @trip, local: true do |f| %>
   <!-- エラーメッセージ表示 -->
   <%= render 'shared/error_messages', model: f.object %>
 
