@@ -8,7 +8,7 @@
       <h4>メニュー</h4>
       <ul class="menu-list">
         <li><%= link_to "新しい旅行を作成する", new_trip_path, class: "btn btn-link" %></li>
-        <li><%# link_to "子供の荷物の初期設定する", edit_child_packing_items_path, class: "btn btn-link" %></li>
+        <li><%= link_to "子供の荷物の初期設定する", "#", class: "btn btn-link" %></li>
       </ul>
     </div>
 
@@ -25,12 +25,12 @@
     <div class="col-md-2 travel-list">
       <h4>行った旅行一覧</h4>
       <ul class="travel-items">
-        <%# @trips.each do |trip| %>
+        <% @trips.each do |trip| %>
           <li class="travel-item">
-            <p><strong>期間:</strong> <%# trip.start_date %> 〜 <%# trip.end_date %></p>
-            <p><strong>訪問県:</strong> <%# trip.prefectures.map(&:name).join(", ") %></p>
+            <p><strong>期間:</strong> <%= trip.start_date %> 〜 <%= trip.end_date %></p>
+            <p><strong>訪問県:</strong> <%= trip.prefectures.map(&:name).join(", ") %></p>
           </li>
-        <%# end %>
+        <% end %>
       </ul>
     </div>
   </div>
