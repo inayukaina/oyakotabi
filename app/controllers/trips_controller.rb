@@ -25,11 +25,18 @@ class TripsController < ApplicationController
   end
 
   def update
+    @trip = Trip.find(params[:id])
     if @trip.update(trip_params)
       redirect_to trip_path(@trip.id)
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+    redirect_to root_path
   end
 
   private
