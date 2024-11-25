@@ -2,7 +2,8 @@
 
 .header {
   background-color: #ffcd1c;
-  padding: 20px 0;
+  padding: 20px 20px;
+  height: 60px;
 }
 .inner {
   width: 1024px;
@@ -12,10 +13,16 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .logo {
-  width: 200px;
+  width: 150px;
 }
+
+.nav__user{
+ margin-right: 20px;
+}
+
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
@@ -30,19 +37,4 @@
 .nav__btn:hover{
   color: #fff;
   background: black;
-}
-
-.nav__logout{
-  display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: black;
-  border: 1px black solid;
-  border-radius: 3px;
-
-  text-decoration: none;
-  user-select: none;
-}
-.nav__logout:hover{
-  opacity: 0.5;
 }
