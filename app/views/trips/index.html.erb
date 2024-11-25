@@ -1,43 +1,48 @@
 <%= render "shared/header"%>
 
 
-<div class="container-fluid">
-  <div class="row">
-    <!-- サイドバー -->
-    <div class="col-md-2 sidebar">
+<div class="layout-container">
+  <% if user_signed_in?  %>
+    <aside class="sidebar">
       <h4>メニュー</h4>
       <ul class="menu-list">
-        <li><%= link_to "新しい旅行を作成する", new_trip_path, class: "btn btn-link" %></li>
-        <li><%= link_to "子供の荷物の初期設定する", "#", class: "btn btn-link" %></li>
+        <li>
+          <%= link_to new_trip_path, class: "menu-button" do %>
+            <%= image_tag "add_trip_icon.png", class:"menu-icon" %>
+            <span>新しい旅行を作成</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: "menu-button" do %>
+            <%= image_tag "packing_list_icon.png", class:"menu-icon" %>
+            <span>子供の荷物初期設定</span>
+          <% end %>
+        </li>
       </ul>
-    </div>
+    </aside>
 
-    <!-- 中央: 白地図 -->
-    <div class="col-md-8 main-content">
-      <h4>訪問した県を地図に表示</h4>
+    <main class="main-content">
+      <h4><%= current_user.name %> おやこが行った県</h4>
       <div id="japan-map" class="map-container">
         <!-- 白地図を表示 -->
         <%# image_tag "japan_map_blank.png", alt: "日本地図", class: "map" %>
       </div>
-    </div>
+    </main>
 
-    <!-- 右側: 旅行一覧 -->
-    <div class="col-md-2 travel-list">
-      <h4>行った旅行一覧</h4>
+    <section class="travel-list">
+      <h4>今までの旅行の記録</h4>
       <ul class="travel-items">
         <% @trips.each do |trip| %>
           <li class="travel-item">
             <%= link_to trip_path(trip), class: "travel-link" do %>
-              <p><strong>期間:</strong> <%= trip.start_date %> 〜 <%= trip.end_date %></p>
-              <p><strong>訪問県:</strong> <%= trip.prefectures.map(&:name).join(", ") %></p>
+              <p><strong>行った日:</strong> <%= trip.start_date %> 〜 <%= trip.end_date %></p>
+              <p><strong>行った県:</strong> <%= trip.prefectures.map(&:name).join(", ") %></p>
             <% end %>
           </li>
         <% end %>
       </ul>
-    </div>
-  </div>
+    </section>
+  <% end %>
 </div>
-
-
 
 <%= render "shared/footer" %>

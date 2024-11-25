@@ -20,6 +20,10 @@
         <p>ここに旅行写真が表示されます。</p>
       </div>
     </div>
+
+        <%# <%= link_to "商品の編集", edit_trip_path(@trip.id), method: :get, class: "trip-edit-btn" %>
+        <%# <%= link_to "削除", trip_path(@trip.id), data: {turbo_method: :delete}, class:"trip-destroy" %>
+
   </div>
 
   <!-- 画面下部 -->
@@ -29,7 +33,7 @@
       <!-- 子供の旅行荷物準備リンク -->
       <div class="icon-link">
         <%= link_to "#" do %>
-          <img src="/images/packing_icon.png" alt="荷物準備" class="icon">
+          <%= image_tag"packing_icon.png", class:"icon" %>
           <p>荷物を準備しよう！</p>
         <% end %>
       </div>
@@ -37,7 +41,7 @@
       <!-- おやつの買い出しリンク -->
       <div class="icon-link">
         <%= link_to "#" do %>
-          <img src="/images/snack_icon.png" alt="おやつ" class="icon">
+          <%= image_tag"snack_icon.png", class:"icon" %>
           <p>おやつを買いに行こう！</p>
         <% end %>
       </div>
@@ -45,7 +49,7 @@
       <!-- 予算管理リンク -->
       <div class="icon-link">
         <%= link_to "#" do %>
-          <img src="/images/budget_icon.png" alt="予算管理" class="icon">
+          <%= image_tag"budget_icon.png", class:"icon" %>
           <p>予算を確認しよう！</p>
         <% end %>
       </div>

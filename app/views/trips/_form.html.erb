@@ -2,55 +2,59 @@
   <!-- エラーメッセージ表示 -->
   <%= render 'shared/error_messages', model: f.object %>
 
-  <!-- 旅行開始日 -->
-  <div class="form-group">
-    <%= f.label :start_date, "旅行開始日" %>
-    <%= f.date_field :start_date, class: "form-control", required: true %>
-  </div>
+  <div class="trip-form-group-inline">
+    <!-- 旅行開始日 -->
+    <div class="trip-form-group">
+      <%= f.label :start_date, "旅行開始日" %>
+      <%= f.date_field :start_date, class: "trip-form-control", required: true %>
+    </div>
 
-  <!-- 旅行終了日 -->
-  <div class="form-group">
-    <%= f.label :end_date, "旅行終了日" %>
-    <%= f.date_field :end_date, class: "form-control", required: true %>
+    <!-- 旅行終了日 -->
+    <div class="trip-form-group">
+      <%= f.label :end_date, "旅行終了日" %>
+      <%= f.date_field :end_date, class: "trip-form-control", required: true %>
+    </div>
   </div>
 
   <!-- 旅行予算 -->
-  <div class="form-group">
+  <div class="trip-form-group">
     <%= f.label :budget_total, "旅行の予算 (円)" %>
-    <%= f.number_field :budget_total, class: "form-control", min: 0, step: 10000, placeholder: "例: 100000", required: true %>
+    <%= f.number_field :budget_total, class: "trip-form-control", min: 0, step: 10000, placeholder: "例: 100000", required: true %>
   </div>
 
   <!-- 訪問する県 -->
   <h4>訪問する県を選択</h4>
-  <div class="form-group">
-    <%= f.label :prefecture_ids, "訪問する県 1" %>
-    <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "form-control" } %>
-  </div>
+  <div class="prefecture-group">
+    <div class="trip-form-group">
+      <%= f.label :prefecture_ids, "訪問する県 1" %>
+      <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "trip-form-control" } %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :prefecture_ids, "訪問する県 2" %>
-    <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "form-control" } %>
-  </div>
+    <div class="trip-form-group">
+      <%= f.label :prefecture_ids, "訪問する県 2" %>
+      <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "trip-form-control" } %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :prefecture_ids, "訪問する県 3" %>
-    <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "form-control" } %>
-  </div>
+    <div class="trip-form-group">
+      <%= f.label :prefecture_ids, "訪問する県 3" %>
+      <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "trip-form-control" } %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :prefecture_ids, "訪問する県 4" %>
-    <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "form-control" } %>
+    <div class="trip-form-group">
+      <%= f.label :prefecture_ids, "訪問する県 4" %>
+      <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "trip-form-control" } %>
+    </div>
   </div>
 
   <!-- メモ -->
-  <div class="form-group">
+  <div class="trip-form-group">
     <%= f.label :notes, "メモ (任意)" %>
     <%= f.text_area :notes, class: "form-control", rows: 5, placeholder: "旅行の計画や特記事項を記入してください。" %>
   </div>
 
   <!-- 送信ボタン -->
-  <div class="form-group">
-    <%= f.submit "旅行を作成", class: "btn btn-primary" %>
-    <%= link_to "キャンセル", trips_path, class: "btn btn-secondary" %>
+  <div class="trip-form-group">
+    <%= f.submit "旅行を作成", class: "trip-form-btn btn-primary" %>
+    <%= link_to "キャンセル", trips_path, class: "trip-form-btn btn-secondary" %>
   </div>
 <% end %>

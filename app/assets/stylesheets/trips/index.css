@@ -1,50 +1,64 @@
-/* 全体レイアウト */
-.container-fluid {
-  height: calc(100vh - 100px);
-  display: flex;
-  flex-direction: row;
+/* レイアウト全体 */
+.layout-container {
+  display: flex; /* Flexboxで横並び */
+  height: calc(100vh - 100px); /* ヘッダーとフッターを除いた高さ */
 }
 
 /* サイドバー */
 .sidebar {
   background-color: #2a3d96;
-  padding: 20px;
-  height: 100%;
-  flex: 1;
+  color: #ffffff;
+  padding: 20px 10px;
+  width: 15%;
+  text-align: center;
 }
 
 .sidebar h4 {
   font-size: 18px;
-  color: #ffffff;
   margin-bottom: 20px;
 }
 
+/* メニューリスト */
 .menu-list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 .menu-list li {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.menu-list .btn-link {
-  color: #ffffff;
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  background-color: #ffffff;
+  color: black;
   font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
 }
 
-.menu-list .btn-link:hover {
-  text-decoration: underline;
+.menu-button:hover {
+  background-color: black;
+  color: #ffffff;
 }
 
-/* 中央: 地図表示 */
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* メインコンテンツ */
 .main-content {
   background-color: #ffcd1c;
+  flex: 4;
   padding: 20px;
   text-align: center;
-  height: 100%;
-  flex: 4;
 }
 
 .main-content h4 {
@@ -54,13 +68,13 @@
 }
 
 .map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80%;
   border: 1px solid #dddddd;
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
 }
 
 .map {
@@ -68,13 +82,12 @@
   height: auto;
 }
 
-/* 右側: 旅行一覧 */
+/* 旅行一覧 */
 .travel-list {
   background-color: #ffcd1c;
+  width: 20%;
   padding: 20px;
-  height: 100%;
   overflow-y: auto;
-  flex: 1;
 }
 
 .travel-list h4 {
@@ -84,7 +97,7 @@
 }
 
 .travel-items {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
@@ -114,7 +127,8 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.travel-link:hover {
-  background-color: #f0f8ff;
+.travel-item:hover {
+  background-color: black;
   border-radius: 8px;
+  color: #ffffff;
 }

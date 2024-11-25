@@ -1,17 +1,20 @@
 /* 全体のレイアウト */
 .container {
   font-family: Arial, sans-serif;
-  margin: 20px auto;
-  max-width: 800px;
-  height: calc(100vh - 60px);
+  max-width: 100%;
+  height: calc(100vh - 80px);
+  background-color: #ffcd1c;
+
 }
 
 /* 画面上部 */
 .upper-section {
+  padding: 100px 300px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 40px;
   background-color: #ffcd1c;
+  
 }
 
 .trip-info {
@@ -55,7 +58,8 @@
 /* 画面下部 */
 .lower-section {
   text-align: center;
-  background-color: #fcff5c;
+  background-color: #ffcd1c;
+  padding: 0 300px;
 }
 
 .lower-section h3 {
@@ -75,8 +79,8 @@
 }
 
 .icon-link img {
-  width: 80px;
-  height: 80px;
+  width: 200px;
+  height: 200px;
   margin-bottom: 10px;
 }
 
@@ -84,6 +88,7 @@
   font-size: 16px;
   color: #555555;
   margin: 0;
+  text-decoration: none;
 }
 
 .icon-link img:hover {
