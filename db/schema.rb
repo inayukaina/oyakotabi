@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_11_21_064407) do
+ActiveRecord::Schema[7.0].define(version: 2024_11_26_053509) do
+  create_table "child_packing_items", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.string "name", null: false
+    t.integer "quantity", default: 1
+    t.boolean "is_event_completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_child_packing_items_on_trip_id"
+  end
+
   create_table "prefectures", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -51,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_21_064407) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "child_packing_items", "trips"
   add_foreign_key "trip_prefectures", "prefectures"
   add_foreign_key "trip_prefectures", "trips"
   add_foreign_key "trips", "users"
