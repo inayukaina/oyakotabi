@@ -32,9 +32,9 @@
     <div class="icon-links">
       <!-- 子供の旅行荷物準備リンク -->
       <div class="icon-link">
-        <%= link_to "#" do %>
+        <%= link_to trip_child_packing_items_path(@trip.id) do %>
           <%= image_tag"packing_icon.png", class:"icon" %>
-          <p>荷物を準備しよう！</p>
+          <p>自分の荷物を準備しよう！</p>
         <% end %>
       </div>
 
