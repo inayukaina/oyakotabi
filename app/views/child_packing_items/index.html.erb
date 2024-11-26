@@ -59,10 +59,6 @@
     </thead>
     <tbody>
       <% @child_packing_items.each do |item| %>
-
-          <%# item のデバッグ用出力 %>
-    <%= Rails.logger.debug "Item: #{item.inspect}" %>
-
         <% next if item.id.nil? %> <!-- IDがnilの場合はスキップ -->
         <tr>
           <td><%= item.name %></td>
@@ -76,7 +72,5 @@
     </tbody>
   </table>
 </div>
-
-
 
 <%= render "shared/footer" %>
