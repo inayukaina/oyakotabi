@@ -1,6 +1,7 @@
 class Trip < ApplicationRecord
   has_many :trip_prefectures, dependent: :destroy
   has_many :prefectures, through: :trip_prefectures
+  has_many :child_packing_items, dependent: :destroy
 
   validates :budget_total, numericality: { greater_than_or_equal_to: 0 }
   validates :start_date, presence: true
