@@ -22,8 +22,11 @@
 
     <main class="main-content">
       <h4><%= current_user.name %> おやこが行った県</h4>
+      <%# <div class="map-container">
+        <%#= image_tag "japan_map.svg", class: "japan-map", id: "japan-map" %>
+      <%# </div> %>
       <div class="map-container">
-        <%= image_tag "japan_map.svg", class: "japan-map", id: "japan-map" %>
+        <%= raw File.read(Rails.root.join('app/assets/images/japan_map.svg')) %>
       </div>
     </main>
 
@@ -42,5 +45,10 @@
     </section>
   <% end %>
 </div>
+
+<script>
+  window.visitedPrefectures = <%= raw @visited_prefecture_ids.to_json %>;
+</script>
+
 
 <%= render "shared/footer" %>
