@@ -1,6 +1,5 @@
 <%= render "shared/header"%>
 
-
 <div class="layout-container">
   <% if user_signed_in?  %>
     <aside class="sidebar">
@@ -23,9 +22,8 @@
 
     <main class="main-content">
       <h4><%= current_user.name %> おやこが行った県</h4>
-      <div id="japan-map" class="map-container">
-        <!-- 白地図を表示 -->
-        <%# image_tag "japan_map_blank.png", alt: "日本地図", class: "map" %>
+      <div class="map-container">
+        <%= image_tag "japan_map.svg", class: "japan-map", id: "japan-map" %>
       </div>
     </main>
 

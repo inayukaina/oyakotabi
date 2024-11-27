@@ -74,11 +74,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90%;
+  height: 95%;
 }
 
-.map {
-  max-width: 100%;
+.japan-map {
+  max-width: 80%;
   height: auto;
 }
 
