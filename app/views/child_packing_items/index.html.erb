@@ -1,12 +1,12 @@
 <%= render "shared/header"%>
 <div class="child-items-upper-container">
-  <h1>自分の荷物を準備しよう!</h1>
+  <%# <h1>自分の荷物を準備しよう!</h1> %>
 
   <div class="child-items-status">
     <% if @child_packing_items.any? && @child_packing_items.all? { |item| item.is_event_completed } %>
-      <p class="status-text">🎉 準備がすべて完了しました！ 🎉</p>
+      <p class="status-text">🎉 自分の荷物の準備が完了しました！ 🎉</p>
     <% else %>
-      <p class="status-text">⚠️ 準備中です。荷物を確認してください！</p>
+      <p class="status-text">⚠️ 準備中です。自分の荷物を準備しよう！</p>
     <% end %>
   </div>
 
@@ -14,29 +14,33 @@
     <% if @edit_item %>
       <h3>アイテムを編集</h3>
       <%= form_with model: [@trip, @edit_item], local: true, method: :patch do |f| %>
-        <div>
-          <%= f.label :name, "アイテム名" %>
-          <%= f.text_field :name, value: @edit_item.name, placeholder: "例: 着替え" %>
+        <div class="form-row">
+          <div>
+            <%= f.label :name, "アイテム名" %>
+            <%= f.text_field :name, value: @edit_item.name, placeholder: "例: 着替え" %>
+          </div>
+          <div>
+            <%= f.label :quantity, "個数" %>
+            <%= f.number_field :quantity, value: @edit_item.quantity, min: 1 %>
+          </div>
+          <%= f.submit "変更する", class: "btn btn-primary" %>
+          <%= link_to "キャンセル", trip_child_packing_items_path(@trip), class: "btn btn-secondary" %>
         </div>
-        <div>
-          <%= f.label :quantity, "個数" %>
-          <%= f.number_field :quantity, value: @edit_item.quantity, min: 1 %>
-        </div>
-        <%= f.submit "変更する", class: "btn btn-primary" %>
-        <%= link_to "キャンセル", trip_child_packing_items_path(@trip), class: "btn btn-secondary" %>
       <% end %>
     <% else %>
-      <h3>下のリストに荷物を追加</h3>
+      <h3>下の荷物リストに荷物を追加</h3>
       <%= form_with model: [@trip, @child_packing_item], local: true do |f| %>
-        <div>
-          <%= f.label :name, "アイテム名" %>
-          <%= f.text_field :name, placeholder: "例: Tシャツ" %>
+        <div class="form-row">
+          <div>
+            <%= f.label :name, "アイテム名" %>
+            <%= f.text_field :name, placeholder: "例: Tシャツ" %>
+          </div>
+          <div>
+            <%= f.label :quantity, "個数" %>
+            <%= f.number_field :quantity, min: 1, value: 1 %>
+          </div>
+          <%= f.submit "追加する", class: "btn btn-primary" %>
         </div>
-        <div>
-          <%= f.label :quantity, "個数" %>
-          <%= f.number_field :quantity, min: 1, value: 1 %>
-        </div>
-        <%= f.submit "追加する", class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </div>

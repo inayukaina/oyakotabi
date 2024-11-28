@@ -22,16 +22,13 @@
 
     <main class="main-content">
       <h4><%= current_user.name %> おやこが行った県</h4>
-      <%# <div class="map-container">
-        <%#= image_tag "japan_map.svg", class: "japan-map", id: "japan-map" %>
-      <%# </div> %>
       <div class="map-container">
         <%= raw File.read(Rails.root.join('app/assets/images/japan_map.svg')) %>
       </div>
     </main>
 
     <section class="travel-list">
-      <h4>今までの旅行の記録</h4>
+      <h4>今までの旅行</h4>
       <ul class="travel-items">
         <% @trips.each do |trip| %>
           <li class="travel-item">

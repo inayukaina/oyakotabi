@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = current_user.trips.includes(:prefectures)
+    @trips = current_user.trips.includes(:prefectures).order(start_date: :desc)
     @visited_prefecture_ids = @trips.flat_map { |trip| trip.prefectures.pluck(:id) }.uniq
   end
 
