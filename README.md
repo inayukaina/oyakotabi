@@ -40,6 +40,7 @@
 - has_many :prefectures, through: :trip_prefectures
 - has_many :child_packing_items, dependent: :destroy
 - has_many :snacks, dependent: :destroy
+- has_one_attached :image  
 
 
 ## prefectures テーブル
