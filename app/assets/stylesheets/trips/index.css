@@ -63,12 +63,12 @@
 
 .main-content h4 {
   font-size: 20px;
-  color: #2a3d96;
+  color: black;
   margin-bottom: 20px;
 }
 
 .map-container {
-  border: 1px solid #dddddd;
+  /* border: 1px solid #ffffff; */
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -92,7 +92,7 @@
 
 .travel-list h4 {
   font-size: 18px;
-  color: #555555;
+  color: black;
   margin-bottom: 20px;
 }
 
@@ -105,7 +105,6 @@
   margin-bottom: 15px;
   padding: 10px;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
   border-radius: 8px;
 }
 

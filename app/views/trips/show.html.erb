@@ -17,11 +17,11 @@
       <h2>旅行写真</h2>
       <!-- 後から実装する部分 -->
       <div class="photo-placeholder">
-        <p>ここに旅行写真が表示されます。</p>
+        <p>旅行の写真を保存しよう！</p>
       </div>
     </div>
 
-        <%= link_to "商品の編集", edit_trip_path(@trip.id), method: :get, class: "trip-edit-btn" %>
+        <%= link_to "旅行情報の編集", edit_trip_path(@trip.id), method: :get, class: "trip-edit-btn" %>
         <%= link_to "削除", trip_path(@trip.id), data: {turbo_method: :delete}, class:"trip-destroy" %>
 
   </div>
