@@ -117,6 +117,15 @@
   font-weight: bold;
 }
 
+.status.planned {
+  color: #ff5722;
+  font-weight: bold;
+  background-color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
 /* リンクのスタイル */
 .travel-link {
   text-decoration: none;

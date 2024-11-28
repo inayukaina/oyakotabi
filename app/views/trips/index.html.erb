@@ -33,6 +33,9 @@
         <% @trips.each do |trip| %>
           <li class="travel-item">
             <%= link_to trip_path(trip), class: "travel-link" do %>
+              <% if trip.start_date >= Date.today %> <!-- 今日以降の旅行 -->
+                <p class="status planned">ただいま計画中！</p>
+              <% end %>
               <p><strong>日にち:</strong> <%= trip.start_date %> 〜 <%= trip.end_date %></p>
               <p><strong>場所:</strong> <%= trip.prefectures.map(&:name).join(", ") %></p>
             <% end %>
