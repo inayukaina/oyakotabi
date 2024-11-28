@@ -118,9 +118,9 @@
 }
 
 .status.planned {
-  color: #ff5722;
+  color: #ffffff;
   font-weight: bold;
-  background-color: #ffffff;
+  background-color: #ff5722;
   padding: 5px 10px;
   border-radius: 5px;
   display: inline-block;
