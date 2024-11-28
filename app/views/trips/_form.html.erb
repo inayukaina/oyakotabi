@@ -22,28 +22,22 @@
     <%= f.number_field :budget_total, class: "trip-form-control", min: 0, step: 10000, placeholder: "例: 100000", required: true %>
   </div>
 
-  <!-- 訪問する県 -->
   <h4>訪問する県を選択</h4>
   <div class="prefecture-group">
-    <div class="trip-form-group">
-      <%= f.label :prefecture_ids, "訪問する県 1" %>
-      <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "trip-form-control" } %>
-    </div>
-
-    <div class="trip-form-group">
-      <%= f.label :prefecture_ids, "訪問する県 2" %>
-      <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "trip-form-control" } %>
-    </div>
-
-    <div class="trip-form-group">
-      <%= f.label :prefecture_ids, "訪問する県 3" %>
-      <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "trip-form-control" } %>
-    </div>
-
-    <div class="trip-form-group">
-      <%= f.label :prefecture_ids, "訪問する県 4" %>
-      <%= f.collection_select :prefecture_ids, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { name: "trip[prefecture_ids][]", class: "trip-form-control" } %>
-    </div>
+    <% 4.times do |index| %>
+      <div class="trip-form-group">
+        <%= f.label "prefecture_ids_#{index}", "訪問する県 #{index + 1}" %>
+        <%= f.select(
+          "prefecture_ids_#{index}",                         # フィールド名（動的IDで一意にする）
+          options_for_select(
+            [["選択しない", nil]] + Prefecture.all.map { |p| [p.name, p.id] }, # 最初に「選択しない」を追加
+            @trip.prefecture_ids[index]                      # 初期選択値
+          ),
+          { include_blank: false },                          # 空白オプションは明示的にfalse
+          { name: "trip[prefecture_ids][]", class: "trip-form-control", id: "prefecture_ids_#{index}" } # HTMLオプション
+        ) %>
+      </div>
+    <% end %>
   </div>
 
   <!-- メモ -->
@@ -55,7 +49,7 @@
   <!-- 写真 -->
   <div class="img-upload">
     <div class="trip-form-group">
-      旅行の写真
+      旅行の写真（任意）
     </div>
     <div class="click-upload">
       <p>
