@@ -23,7 +23,7 @@
 
 .trip-info h2 {
   font-size: 22px;
-  color: #2a3d96;
+  color: black;
   margin-bottom: 10px;
 }
 
@@ -34,13 +34,7 @@
 
 .trip-photos {
   width: 45%;
-  text-align: center;
-}
-
-.trip-photos h2 {
-  font-size: 22px;
-  color: #2a3d96;
-  margin-bottom: 10px;
+  text-4lign: center;
 }
 
 .photo-placeholder {
@@ -53,6 +47,31 @@
   align-items: center;
   font-size: 16px;
   color: #777777;
+}
+
+.photo-message {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* ボタンスタイル */
+.trip-edit-btn, .trip-destroy {
+  display: inline-block;
+  background-color: #fff; /* 白背景 */
+  color: #000; /* 黒文字 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.trip-edit-btn:hover, .trip-destroy:hover {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
 }
 
 /* 画面下部 */
@@ -86,12 +105,12 @@
 
 .icon-link p {
   font-size: 16px;
-  color: #555555;
+  color: #000;
   margin: 0;
-  text-decoration: none;
+  text-decoration: none; /* 下線を削除が効いてない */
 }
 
 .icon-link img:hover {
-  transform: scale(1.1); /* ホバー時に少し大きくする */
+  transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
 }

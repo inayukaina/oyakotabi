@@ -52,6 +52,19 @@
     <%= f.text_area :notes, class: "form-control", rows: 5, placeholder: "旅行の計画や特記事項を記入してください。" %>
   </div>
 
+  <!-- 写真 -->
+  <div class="img-upload">
+    <div class="trip-form-group">
+      旅行の写真
+    </div>
+    <div class="click-upload">
+      <p>
+        クリックしてファイルをアップロード
+      </p>
+      <%= f.file_field :image, id:"item-image" %>
+    </div>
+  </div>
+
   <!-- 送信ボタン -->
   <div class="trip-form-group">
     <%= f.submit "保存する", class: "trip-form-btn btn-primary" %>
