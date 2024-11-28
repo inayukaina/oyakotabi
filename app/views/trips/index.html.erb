@@ -33,8 +33,8 @@
         <% @trips.each do |trip| %>
           <li class="travel-item">
             <%= link_to trip_path(trip), class: "travel-link" do %>
-              <p><strong>行った日:</strong> <%= trip.start_date %> 〜 <%= trip.end_date %></p>
-              <p><strong>行った県:</strong> <%= trip.prefectures.map(&:name).join(", ") %></p>
+              <p><strong>日にち:</strong> <%= trip.start_date %> 〜 <%= trip.end_date %></p>
+              <p><strong>場所:</strong> <%= trip.prefectures.map(&:name).join(", ") %></p>
             <% end %>
           </li>
         <% end %>

@@ -6,24 +6,24 @@
     <!-- 左側: 旅行情報 -->
     <div class="trip-info">
       <h2>旅行情報</h2>
-      <p><strong>訪問県:</strong> <%= @trip.prefectures.map(&:name).join(", ") %></p>
-      <p><strong>旅行日程:</strong> <%= @trip.start_date %> 〜 <%= @trip.end_date %></p>
+      <p><strong>場所:</strong> <%= @trip.prefectures.map(&:name).join(", ") %></p>
+      <p><strong>日にち:</strong> <%= @trip.start_date %> 〜 <%= @trip.end_date %></p>
       <p><strong>予算:</strong> ¥<%= number_to_currency(@trip.budget_total, unit: "", precision: 0) %></p>
       <p><strong>メモ:</strong> <%= @trip.notes.presence || "なし" %></p>
+      <%= link_to "旅行情報の編集", edit_trip_path(@trip.id), method: :get, class: "trip-edit-btn" %>
+      <%= link_to "削除", trip_path(@trip.id), data: {turbo_method: :delete}, class:"trip-destroy" %>
     </div>
 
     <!-- 右側: 写真 -->
     <div class="trip-photos">
-      <h2>旅行写真</h2>
-      <!-- 後から実装する部分 -->
       <div class="photo-placeholder">
-        <p>旅行の写真を保存しよう！</p>
+        <% if @trip.image.attached? %>
+          <%= image_tag @trip.image.variant(resize: '500x500'), class: 'trip-image' %>
+        <% else %>
+          <p class="photo-message">旅行の写真を保存しよう！</p>
+        <% end %>
       </div>
     </div>
-
-        <%= link_to "旅行情報の編集", edit_trip_path(@trip.id), method: :get, class: "trip-edit-btn" %>
-        <%= link_to "削除", trip_path(@trip.id), data: {turbo_method: :delete}, class:"trip-destroy" %>
-
   </div>
 
   <!-- 画面下部 -->
