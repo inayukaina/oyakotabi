@@ -39,8 +39,8 @@
 | ------------------ | ---------- | ----------------------------- |
 | user_id            | references | null: false, foreign_key:true |
 | budget_total       | integer    | default: 0	                  |
-| start_date         | date       |                               |
-| end_date           | date       |                               |
+| start_date         | date       | null: false                   |
+| end_date           | date       | null: false                   |
 | notes              | text       |                               |
 
 ### Association
