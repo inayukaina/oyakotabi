@@ -8,7 +8,7 @@ RSpec.describe Trip, type: :model do
     @trip.prefectures << @prefecture
   end
 
-  describe '旅行情報の保存' do
+  describe '旅行情報の登録' do
     context '旅行情報を登録できるとき' do
       it 'start_date、end_date,prefectureを入力すると登録できる' do
         expect(@trip).to be_valid
