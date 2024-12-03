@@ -62,8 +62,8 @@
   <!-- 送信ボタン -->
   <div class="trip-form-group">
     <%= f.submit "保存する", class: "trip-form-btn btn-primary" %>
-    <%= link_to "キャンセル", 
-              params[:action] == "new" ? trips_path : trip_path(@trip), 
-              class: "trip-form-btn btn-secondary" %>
+<%= link_to "キャンセル", 
+            params[:action] == "new" || @trip.new_record? ? trips_path : trip_path(@trip), 
+            class: "trip-form-btn btn-secondary" %>
   </div>
 <% end %>
