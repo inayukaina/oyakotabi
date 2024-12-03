@@ -2,12 +2,9 @@ require 'rails_helper'
 
 RSpec.describe ChildPackingItem, type: :model do
   before do
-    # 必要なデータの作成
-    @user = FactoryBot.create(:user) # ユーザーを作成
-    @trip = FactoryBot.create(:trip, user_id: @user.id) # ユーザーを関連付けて旅行を作成
-    @prefecture = FactoryBot.create(:prefecture) # 都道府県を作成
-    @trip.prefectures << @prefecture # 旅行に都道府県を関連付ける
-    @child_packing_item = FactoryBot.build(:child_packing_item, trip_id: @trip.id) # 旅行を関連付けて子供用荷物を作成
+    @user = FactoryBot.create(:user)
+    @trip = FactoryBot.build(:trip, user_id: @user.id)
+    @child_packing_item = FactoryBot.build(:child_packing_item, trip: @trip)
   end
 
   describe '子供用荷物の保存' do
