@@ -39,6 +39,11 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  # Load seed data before the test suite runs
+  config.before(:suite) do
+    load "#{Rails.root}/db/test_seeds.rb"
+  end
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
