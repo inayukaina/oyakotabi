@@ -30,9 +30,9 @@ RSpec.describe '旅行情報作成', type: :system do
         find('input[name="commit"]').click
         sleep 1
       }.to change { Trip.count }.by(1)
-      # トップページには先ほど作成した内容の旅行情報が存在することを確認する
+      # トップページには先ほど作成した旅行情報が存在することを確認する
       expect(page).to have_content ("#{@trip_start_date}")
-      # トップページの先ほど作成した内容の旅行情報に対応した県に色がついていることを確認する
+      # トップページの白地図は、先ほど作成した旅行情報と同じ県に色がついていることを確認する
       expect(page).to have_css("g#prefecture-#{@selected_prefecture.id}[style*='fill: rgb(42, 186, 108)']")
     end
   end
@@ -42,13 +42,71 @@ RSpec.describe '旅行情報作成', type: :system do
       visit root_path
       # 旅行情報新規作成ページへのボタンがないことを確認する
       expect(page).to have_no_content('新しい旅行を作成')
-      # トップページに遷移する
+      # 旅行情報新規作成ページに遷移する
       visit new_trip_path
       # ログイン画面にリダイレクトされることを確認する
       expect(page).to have_content('You need to sign in or sign up before continuing.')
     end
   end
 end
+
+RSpec.describe '旅行情報編集', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @trip_start_date = Date.today
+    @trip_end_date = Date.today + 3
+    @selected_prefecture = Prefecture.order("RAND()").first
+  end
+  context '旅行情報編集ができるとき' do
+    it 'ユーザーは旅行情報の編集ができる' do
+      # ログインする
+      visit new_user_session_path
+      fill_in 'メールアドレス', with: @user.email
+      fill_in 'パスワード', with: @user.password
+      find('input[name="commit"]').click
+      expect(page).to have_current_path(root_path)
+      # 旅行情報を作成する
+      visit new_trip_path
+      fill_in 'trip_start_date', with: @trip_start_date
+      fill_in 'trip_end_date', with: @trip_end_date
+      select @selected_prefecture.name, from: 'prefecture_ids_0'
+      find('input[name="commit"]').click
+      # トップページから作成した旅行情報の詳細画面に遷移する
+      visit trip_path(Trip.last)
+      # 旅行情報に「編集」へのリンクがあることを確認する
+      expect(page).to have_content('編集')
+      # 旅行情報の編集画面に遷移する
+      visit edit_trip_path(Trip.last)
+      # すでに作成済みの内容がフォームに入っていることを確認する
+      expect(page).to have_field('trip_start_date', with: @trip_start_date)
+      expect(page).to have_field('trip_end_date', with: @trip_end_date)
+      select @selected_prefecture.name, from: 'prefecture_ids_0'
+      # 内容を編集する
+      fill_in 'trip_start_date', with: Date.today + 1
+      fill_in 'trip_end_date', with: Date.today + 4
+      select '北海道', from: 'prefecture_ids_1'
+      # 編集してもTripモデルのカウントは変わらないことを確認する
+      expect{
+        find('input[name="commit"]').click
+        sleep 1
+      }.to_not change { Trip.count }
+      # トップページには先ほど変更した内容の旅行情報が存在することを確認する
+      expect(page).to have_content ("#{Date.today + 1}")
+    end
+  end
+  context '旅行情報編集ができないとき' do
+    it 'ログインしていないと旅行情報の編集画面には遷移できない' do
+      # トップページに遷移できない
+      visit root_path
+      # ログイン画面にリダイレクトされることを確認する
+      expect(page).to have_content('You need to sign in or sign up before continuing.')
+    end
+  end
+end
+
+
+
+
 
 def basic_pass(path)
   username = ENV["BASIC_AUTH_USER"]
