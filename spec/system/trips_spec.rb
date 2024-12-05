@@ -129,7 +129,7 @@ RSpec.describe '旅行情報削除', type: :system do
       visit trip_path(Trip.last)
       # 旅行情報に「削除」へのリンクがあることを確認する
       expect(page).to have_content('削除')
-      # 投稿を削除すると旅行情報の数が1減ることを確認する
+      # 削除すると旅行情報の数が1減ることを確認する
       expect{
         find_link('削除').click
         sleep 1
