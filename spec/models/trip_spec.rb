@@ -4,7 +4,7 @@ RSpec.describe Trip, type: :model do
   before do
     user = FactoryBot.create(:user)
     @trip = FactoryBot.build(:trip, user_id: user.id)
-    @prefecture = FactoryBot.create(:prefecture)
+    @prefecture = Prefecture.first
     @trip.prefectures << @prefecture
   end
 
