@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: かぞくのなまえ
+      trip:
+        end_date: 旅行終了日
+        start_date: 旅行開始日
+        prefectures: 訪問する県
