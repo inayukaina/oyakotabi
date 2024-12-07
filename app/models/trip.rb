@@ -15,7 +15,7 @@ class Trip < ApplicationRecord
 
   def end_date_after_start_date
     if end_date.present? && start_date.present? && end_date < start_date
-      errors.add(:end_date, "は開始日以降の日付を入力してください。")
+      errors.add(:end_date, "は旅行開始日以降の日付を入力してください。")
     end
   end
 
