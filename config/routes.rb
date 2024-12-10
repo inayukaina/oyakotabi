@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tops/index'
   get 'child_packing_items/index'
   devise_for :users
   root to: 'trips#index'
