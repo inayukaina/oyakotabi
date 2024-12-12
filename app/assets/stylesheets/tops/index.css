@@ -4,7 +4,7 @@
   padding: 2rem;
 }
 
-.map-container {
+.top-map-container {
   flex: 1;
   max-width: 50%;
 }
@@ -14,11 +14,17 @@
   max-width: 50%;
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .app-description h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+.top-logo {
+  height: 5rem;
+  margin-right: 0.5rem;
 }
 
 .app-description h2 {
@@ -33,4 +39,8 @@
 
 .app-description li {
   margin-bottom: 0.5rem;
+}
+
+.app-description p {
+  margin-top: 2rem;
 }
