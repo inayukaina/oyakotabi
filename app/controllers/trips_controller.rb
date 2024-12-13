@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @trips = current_user.trips.includes(:prefectures).order(start_date: :desc)
     @visited_prefecture_ids = @trips.flat_map { |trip| trip.prefectures.pluck(:id) }.uniq
@@ -12,7 +13,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     if @trip.save
-      redirect_to root_path
+      redirect_to trips_path
     else
       render :new, status: :unprocessable_entity
     end

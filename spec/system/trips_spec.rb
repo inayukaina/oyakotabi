@@ -16,7 +16,7 @@ RSpec.describe '旅行情報作成', type: :system do
       fill_in 'メールアドレス', with: @user.email
       fill_in 'パスワード', with: @user.password
       find('input[name="commit"]').click
-      expect(page).to have_current_path(root_path)
+      expect(page).to have_current_path(trips_path)
       # 旅行情報新規作成ページへのボタンがあることを確認する
       expect(page).to have_content('新しい旅行を作成')
       # 新規作成ページに移動する
@@ -45,7 +45,7 @@ RSpec.describe '旅行情報作成', type: :system do
       # 旅行情報新規作成ページに遷移する
       visit new_trip_path
       # ログイン画面にリダイレクトされることを確認する
-      expect(page).to have_content('You need to sign in or sign up before continuing.')
+      expect(page).to have_content('ログインもしくはアカウント登録してください。')
     end
   end
 end
@@ -64,7 +64,7 @@ RSpec.describe '旅行情報編集', type: :system do
       fill_in 'メールアドレス', with: @user.email
       fill_in 'パスワード', with: @user.password
       find('input[name="commit"]').click
-      expect(page).to have_current_path(root_path)
+      expect(page).to have_current_path(trips_path)
       # 旅行情報を作成する
       visit new_trip_path
       fill_in 'trip_start_date', with: @trip_start_date
@@ -98,8 +98,8 @@ RSpec.describe '旅行情報編集', type: :system do
     it 'ログインしていないと旅行情報の編集画面には遷移できない' do
       # トップページに移動する
       visit root_path
-      # ログイン画面にリダイレクトされることを確認する
-      expect(page).to have_content('You need to sign in or sign up before continuing.')
+      # トップページには旅行情報詳細画面へのリンクがないことを確認する
+      expect(page).to have_no_content('今までの旅行')
     end
   end
 end
@@ -118,7 +118,7 @@ RSpec.describe '旅行情報削除', type: :system do
       fill_in 'メールアドレス', with: @user.email
       fill_in 'パスワード', with: @user.password
       find('input[name="commit"]').click
-      expect(page).to have_current_path(root_path)
+      expect(page).to have_current_path(trips_path)
       # 旅行情報を作成する
       visit new_trip_path
       fill_in 'trip_start_date', with: @trip_start_date
@@ -142,8 +142,8 @@ RSpec.describe '旅行情報削除', type: :system do
     it 'ログインしていないと旅行情報の削除画面には遷移できない' do
       # トップページに移動する
       visit root_path
-      # ログイン画面にリダイレクトされることを確認する
-      expect(page).to have_content('You need to sign in or sign up before continuing.')
+      # トップページには旅行情報詳細画面へのリンクがないことを確認する
+      expect(page).to have_no_content('今までの旅行')
     end
   end
 end

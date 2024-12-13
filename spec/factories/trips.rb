@@ -5,8 +5,8 @@ FactoryBot.define do
     start_date { Date.today }
     end_date { Date.today + 3 }
 
-    after(:create) do |trip|
-      trip.prefectures << FactoryBot.create(:prefecture) # 都道府県を1つ関連付け
+    after(:build) do |trip|
+      trip.prefectures << Prefecture.first # 既存の都道府県を1つ関連付け
     end
   end
 end

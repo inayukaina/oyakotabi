@@ -5,7 +5,6 @@ RSpec.describe Trip, type: :model do
     user = FactoryBot.create(:user)
     @trip = FactoryBot.build(:trip, user_id: user.id)
     @prefecture = Prefecture.first
-    @trip.prefectures << @prefecture
   end
 
   describe '旅行情報の登録' do

@@ -8,12 +8,12 @@ RSpec.describe Prefecture, type: :model do
   it 'nameがなければ無効である' do
     @prefecture.name = nil
     @prefecture.valid?
-    expect(@prefecture.errors.full_messages).to include("Name can't be blank")
+    expect(@prefecture.errors.full_messages).to include("Nameを入力してください")
   end
 
   it 'nameが重複していれば無効である' do
     duplicate_prefecture = Prefecture.new(name: @prefecture.name)
     duplicate_prefecture.valid?
-    expect(duplicate_prefecture.errors.full_messages).to include("Name has already been taken")
+    expect(duplicate_prefecture.errors.full_messages).to include("Nameはすでに存在します")
   end
 end
