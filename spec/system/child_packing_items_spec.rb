@@ -15,7 +15,7 @@ RSpec.describe "荷物準備機能", type: :system do
     fill_in 'メールアドレス', with: @user.email
     fill_in 'パスワード', with: @user.password
     find('input[name="commit"]').click
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(trips_path)
     # 旅行情報を作成する
     visit new_trip_path
     fill_in 'trip_start_date', with: @trip_start_date
@@ -48,7 +48,7 @@ RSpec.describe "荷物準備機能", type: :system do
     fill_in 'メールアドレス', with: @user.email
     fill_in 'パスワード', with: @user.password
     find('input[name="commit"]').click
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(trips_path)
     # 旅行情報を作成する
     visit new_trip_path
     fill_in 'trip_start_date', with: @trip_start_date
@@ -89,7 +89,7 @@ RSpec.describe "荷物準備機能", type: :system do
     fill_in 'メールアドレス', with: @user.email
     fill_in 'パスワード', with: @user.password
     find('input[name="commit"]').click
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(trips_path)
     # 旅行情報を作成する
     visit new_trip_path
     fill_in 'trip_start_date', with: @trip_start_date

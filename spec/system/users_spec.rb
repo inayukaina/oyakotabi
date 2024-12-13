@@ -24,7 +24,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
         sleep 1
       }.to change { User.count }.by(1)
       # トップページへ遷移することを確認する
-      expect(page).to have_current_path(root_path)
+      expect(page).to have_current_path(trips_path)
       # ログアウトボタンが表示されていることを確認する
       expect(page).to have_content('ログアウト')
       # サインアップページへ遷移するボタンや、ログインページへ遷移するボタンが表示されていないことを確認する
@@ -74,7 +74,7 @@ RSpec.describe 'ログイン', type: :system do
       # ログインボタンを押す
       find('input[name="commit"]').click
       # トップページへ遷移することを確認する
-      expect(page).to have_current_path(root_path)
+      expect(page).to have_current_path(trips_path)
       # ログアウトボタンが表示されていることを確認する
       expect(page).to have_content('ログアウト')
       # サインアップページへ遷移するボタンやログインページへ遷移するボタンが表示されていないことを確認する
