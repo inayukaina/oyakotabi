@@ -33,8 +33,11 @@ class ChildPackingItemsController < ApplicationController
   end
 
   def complete
-    @trip.child_packing_items.update_all(is_event_completed: true)
-    redirect_to trip_child_packing_items_path(@trip)
+    if @trip.update(is_event_completed: true)
+      redirect_to trip_child_packing_items_path(@trip), notice: '荷物準備イベントが完了しました！'
+    else
+      redirect_to trip_child_packing_items_path(@trip), alert: '完了処理に失敗しました。'
+    end
   end
 
   private
