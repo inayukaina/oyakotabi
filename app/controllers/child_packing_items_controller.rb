@@ -1,5 +1,5 @@
 class ChildPackingItemsController < ApplicationController
-  before_action :set_trip, only: [:index, :create, :update, :destroy]
+  before_action :set_trip, only: [:index, :create, :update, :destroy, :complete]
   def index
     @child_packing_items = @trip.child_packing_items
     @child_packing_item = @trip.child_packing_items.new # 新規追加用
@@ -33,7 +33,7 @@ class ChildPackingItemsController < ApplicationController
   end
 
   def complete
-    if @trip.update(is_event_completed: true)
+    if @trip.child_packing_items.update_all(is_event_completed: true)
       redirect_to trip_child_packing_items_path(@trip), notice: '荷物準備イベントが完了しました！'
     else
       redirect_to trip_child_packing_items_path(@trip), alert: '完了処理に失敗しました。'
