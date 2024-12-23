@@ -47,7 +47,7 @@
 
   <div class="child-items-menu-section">
     <%= button_to "事前設定のアイテムを取り込む", "#", method: :post, class: "btn btn-secondary" %>
-    <%= button_to "すべて完了！", "#", method: :post, class: "btn btn-success", data: { turbo: false } %>
+    <%= button_to "すべて完了！", complete_trip_child_packing_items_path(@trip), method: :patch, class: "btn btn-success", data: { turbo: false } %>
   </div>
 </div>
 
