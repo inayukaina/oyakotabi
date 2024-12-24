@@ -1,5 +1,6 @@
 class ChildPackingItemsController < ApplicationController
   before_action :set_trip, only: [:index, :create, :update, :destroy, :complete]
+  before_action :set_child_packing_item, only: [:update, :destroy]
   def index
     @child_packing_items = @trip.child_packing_items.where.not(id: nil) # 保存済みアイテムのみ取得
     @child_packing_item = @trip.child_packing_items.new # 新規追加用
@@ -18,7 +19,6 @@ class ChildPackingItemsController < ApplicationController
 
   def update
     @child_packing_items = @trip.child_packing_items
-    @child_packing_item = @trip.child_packing_items.find(params[:id])
     if @child_packing_item.update(child_packing_item_params)
       redirect_to trip_child_packing_items_path(@trip)
     else
@@ -27,7 +27,6 @@ class ChildPackingItemsController < ApplicationController
   end
 
   def destroy
-    @child_packing_item = @trip.child_packing_items.find(params[:id])
     @child_packing_item.destroy
     redirect_to trip_child_packing_items_path(@trip)
   end
@@ -44,6 +43,10 @@ class ChildPackingItemsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:trip_id])
+  end
+
+  def set_child_packing_item
+    @child_packing_item = @trip.child_packing_items.find(params[:id])
   end
 
   def child_packing_item_params
