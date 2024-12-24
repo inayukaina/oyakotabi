@@ -6,7 +6,7 @@
     <% if @child_packing_items.any? && @child_packing_items.all? { |item| item.is_event_completed } %>
       <p class="status-text">🎉 荷物の準備は完了しました！ 🎉</p>
     <% else %>
-      <p class="status-text">⚠️ 準備中です。自分の荷物を準備しよう！</p>
+      <p class="status-text">⚠️ 準備が未完了です。荷物を準備しよう！⚠️</p>
     <% end %>
   </div>
 
