@@ -1,7 +1,7 @@
 class ChildPackingItemsController < ApplicationController
   before_action :set_trip, only: [:index, :create, :update, :destroy, :complete]
   def index
-    @child_packing_items = @trip.child_packing_items
+    @child_packing_items = @trip.child_packing_items.where.not(id: nil) # 保存済みアイテムのみ取得
     @child_packing_item = @trip.child_packing_items.new # 新規追加用
     @edit_item = @trip.child_packing_items.find(params[:id]) if params[:id] # 編集用
   end
