@@ -126,6 +126,7 @@ RSpec.describe '旅行情報削除', type: :system do
       select @selected_prefecture.name, from: 'prefecture_ids_0'
       find('input[name="commit"]').click
       # トップページから作成した旅行情報の詳細画面に遷移する
+      sleep 1
       visit trip_path(Trip.last)
       # 旅行情報に「削除」へのリンクがあることを確認する
       expect(page).to have_content('削除')
