@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :trips do
     resources :child_packing_items, except: [:show, :new] do
       collection do
-        post :complete
+        patch :complete
       end
     end
   end

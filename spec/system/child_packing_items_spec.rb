@@ -23,6 +23,7 @@ RSpec.describe "荷物準備機能", type: :system do
     select @selected_prefecture.name, from: 'prefecture_ids_0'
     find('input[name="commit"]').click
     # 旅行情報詳細ページに遷移する
+    sleep 1
     visit trip_path(Trip.last)
     # 旅行情報詳細画面に荷物準備ページへのリンクがあることを確認する
     expect(page).to have_content('自分の荷物を準備しよう！')
@@ -41,6 +42,7 @@ RSpec.describe "荷物準備機能", type: :system do
     # 先ほど追加した荷物が表示されていることを確認する
     expect(page).to have_content('新規荷物')
   end
+
   it 'ユーザーは荷物リストを編集できる' do
     # ログインする
     basic_pass root_path
@@ -116,6 +118,36 @@ RSpec.describe "荷物準備機能", type: :system do
     expect(page).to have_no_content('新規荷物')
     # 荷物準備ページにリダイレクトされることを確認する
     expect(page).to have_current_path(trip_child_packing_items_path(Trip.last))
+  end
+
+  it 'ユーザーは準備イベントを完了にできる' do
+    # ログインする
+    basic_pass root_path
+    visit new_user_session_path
+    fill_in 'メールアドレス', with: @user.email
+    fill_in 'パスワード', with: @user.password
+    find('input[name="commit"]').click
+    expect(page).to have_current_path(trips_path)
+    # 旅行情報を作成する
+    visit new_trip_path
+    fill_in 'trip_start_date', with: @trip_start_date
+    fill_in 'trip_end_date', with: @trip_end_date
+    select @selected_prefecture.name, from: 'prefecture_ids_0'
+    find('input[name="commit"]').click
+    # 旅行情報詳細ページに遷移する
+    sleep 1
+    visit trip_path(Trip.last)
+    # 荷物準備ページへ遷移する
+    visit trip_child_packing_items_path(Trip.last)
+    # 荷物リストを作成する
+    fill_in 'child_packing_item_name', with: '新規荷物'
+    fill_in 'child_packing_item_quantity', with: 1
+    find('input[name="commit"]').click
+    # 「すべて完了！」ボタンがあることを確認する
+    expect(page).to have_content('すべて完了！')
+    # 「すべて完了！」ボタンをクリックすると、「荷物の準備は完了しました！」と表示されることを確認する
+    find_button('すべて完了！').click
+    expect(page).to have_content('荷物の準備は完了しました！')
   end
 
 end

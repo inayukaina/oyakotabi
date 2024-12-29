@@ -7,3 +7,5 @@ ja:
         end_date: 旅行終了日
         start_date: 旅行開始日
         prefectures: 訪問する県
+    models:
+      trip: 旅行情報

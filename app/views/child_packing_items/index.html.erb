@@ -4,9 +4,9 @@
 
   <div class="child-items-status">
     <% if @child_packing_items.any? && @child_packing_items.all? { |item| item.is_event_completed } %>
-      <p class="status-text">🎉 自分の荷物の準備が完了しました！ 🎉</p>
+      <p class="status-text">🎉 荷物の準備は完了しました！ 🎉</p>
     <% else %>
-      <p class="status-text">⚠️ 準備中です。自分の荷物を準備しよう！</p>
+      <p class="status-text">⚠️ 準備が未完了です。荷物を準備しよう！⚠️</p>
     <% end %>
   </div>
 
@@ -47,7 +47,7 @@
 
   <div class="child-items-menu-section">
     <%= button_to "事前設定のアイテムを取り込む", "#", method: :post, class: "btn btn-secondary" %>
-    <%= button_to "すべて完了！", "#", method: :post, class: "btn btn-success", data: { turbo: false } %>
+    <%= button_to "すべて完了！", complete_trip_child_packing_items_path(@trip), method: :patch, class: "btn btn-success", data: { turbo: false } %>
   </div>
 </div>
 
